@@ -5,6 +5,11 @@ import sqlite3
 import yaml
 from yaml.loader import SafeLoader
 
+st.set_page_config(
+    page_title="買い物リスト",
+    page_icon="🛒"
+)
+
 with open('./config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
 
@@ -64,8 +69,6 @@ if st.session_state["authentication_status"]:
             category_list = [row[0] for row in c.fetchall()]  # データベースからカテゴリの一覧を取得
             if len(category_list) == 0:  # カテゴリが存在しない場合はデフォルトカテゴリを選択
                 category = 'デフォルト'
-            else:
-                category = st.selectbox("カテゴリ", category_list, index=len(category_list)-1)  # 最新のカテゴリをデフォルトで選択
             submit_item = st.form_submit_button('商品を追加', use_container_width=True)
             if submit_item and new_item and category:
                 c.execute("INSERT INTO shopping_list (item, category, purchased) VALUES (?, ?, 0)", (new_item, category))
