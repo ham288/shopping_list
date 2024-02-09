@@ -1,0 +1,11 @@
+credentials:
+  usernames:
+    hamtora3:
+      email: test@gmail.com
+      logged_in: False # Will be managed automatically
+      name: John Smith
+      password: $2b$12$ndqjT/JLyFFtE619aZ3p2ejzyLFQx/B.iNgbLlJZBQzvNjkSvx4KK # Will be hashed automatically
+cookie:
+  expiry_days: 30
+  key: ham_shopping_list
+  name: ham_shopping_list
